@@ -19,10 +19,20 @@
      <servlet-name>homes</servlet-name>
      <servlet-class>homes</servlet-class>
   </servlet>
-
+ 
   <servlet-mapping>
      <servlet-name>homes</servlet-name>
      <url-pattern>/homes</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+     <servlet-name>people</servlet-name>
+     <servlet-class>people</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+     <servlet-name>people</servlet-name>
+     <url-pattern>/people</url-pattern>
   </servlet-mapping>
   
    <servlet>

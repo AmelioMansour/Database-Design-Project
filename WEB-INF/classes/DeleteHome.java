@@ -1,14 +1,9 @@
-// Paul Pietrzyk
-// Java MCS3603
-// Assignment 6
-// Nov 8, 2008
-
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
 import java.sql.*;
 
-public class SimpleUpdate extends HttpServlet 
+public class DeleteHome extends HttpServlet 
 {
     public void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException,IOException
@@ -19,9 +14,8 @@ public class SimpleUpdate extends HttpServlet
 			Connection con=null; 
             
 
-                String lastName = request.getParameter("lastName");
-				String firstName = request.getParameter("firstName");
-            
+                String HOMEID = request.getParameter("HOMEID");
+
 		try
 		{			
             DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver()); 
@@ -33,7 +27,9 @@ public class SimpleUpdate extends HttpServlet
         catch(SQLException e)
 		{	
 			System.out.println("Error: "+e);
-				
+			
+			
+			
 		}
 		catch(Exception e) 
 		{
@@ -59,27 +55,28 @@ public class SimpleUpdate extends HttpServlet
   			e.printStackTrace();
 		}
 		
-		query = "update Address set firstname = '"+firstName+"' where lastName  = '"+lastName+"'";											
+		query = "delete from homes where homeID = '"+HOMEID+"'";											
       
 		
-		out.println("<html><head><title>  Record has been updated</title>");	 
+		out.println("<html><head><title>  Record has deleted</title>");	 
 		out.println("</head><body>");
 		
 		
-		out.print( "<br /><b><center><font color=\"RED\"><H2>The following record has been updated in the database:</H2></font>");
+		out.print( "<br /><b><center><font color=\"RED\"><H2>The following record has been deleted from the database:</H2></font>");
 		
-        out.print( lastName );
-		out.print( firstName );
+        out.print( HOMEID );
 		
         out.println( "</center><br />" );
        	try 
 		{ 
-			result=state4.executeQuery(query);		
+			result=state4.executeQuery(query);
+				
 	  	}
 		catch (SQLException e) 
 		{
 			System.err.println("SQLException while executing SQL Statement."); 
 		}
+		
 		try 
 		{ 
    			result.close(); 

@@ -1,3 +1,4 @@
+--test
 --fill cities
 INSERT INTO cities (name, population, crimeRate, propertyTaxRate, incomeTaxRate)
 VALUES ('Rochester', 13035, 359.2, 13.3, 60);
@@ -125,3 +126,6 @@ INSERT INTO includes (homeid, modelNr)
 VALUES (104, 456);
 INSERT INTO includes (homeid, modelNr)
 VALUES (104, 455);
+
+--commits inserts so that it saves
+commit;

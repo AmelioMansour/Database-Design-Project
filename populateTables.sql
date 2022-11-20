@@ -103,3 +103,25 @@ INSERT INTO homes (HomeId, Address, Floorspace, Floors, Bedrooms, FullBathrooms,
 VALUES (105,'331 John St', 3000, 1, 2, 1, 1, .3, 1975, 'Rochester', 48306, 'Avondale');
 INSERT INTO homes (HomeId, Address, Floorspace, Floors, Bedrooms, FullBathrooms, HalfBathrooms, Landsize, YearConstructed, city, zip, schoolDistrict)
 VALUES (106,'285 Philly St', 3000, 1, 2, 1, 1, .3, 1980, 'Pontiac', 49077, 'School district of Pontiac');
+--fill some appliances
+INSERT INTO appliances (modelNr, make, name, description)
+VALUES (455, 'Maytag', 'Maytag Washer/Dryer Stack', 'Maytag Washer/Dryer stack combo. Washer includes hot, warm, or cold water, and light, delicate, or heavy wash settings. Easy pull out tray for detergent and fabric softener. Dryer includes variable time settings, and an easy to clean lent trap');
+INSERT INTO appliances (modelNr, make, name, description)
+VALUES (456, 'Maytag', 'Maytag Dishwasher', 'Multi level settings for any mess!');
+INSERT INTO appliances (modelNr, make, name, description)
+VALUES (457, 'Maytag', 'Maytag Washer', 'Washer includes hot, warm, or cold water, and light, delicate, or heavy wash settings');
+INSERT INTO appliances (modelNr, make, name, description)
+VALUES (458, 'Maytag', 'Maytag Dryer', 'includes variable time and heat settings, and an easy to clean lent trap!');
+--fill some includes(home includes appliance)
+INSERT INTO includes (homeid, modelNr)
+VALUES (100, 455);
+INSERT INTO includes (homeid, modelNr)
+VALUES (100, 456);
+INSERT INTO includes (homeid, modelNr)
+VALUES (103, 456);
+INSERT INTO includes (homeid, modelNr)
+VALUES (103, 455);
+INSERT INTO includes (homeid, modelNr)
+VALUES (104, 456);
+INSERT INTO includes (homeid, modelNr)
+VALUES (104, 455);

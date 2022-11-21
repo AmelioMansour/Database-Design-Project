@@ -3,21 +3,21 @@ import javax.servlet.http.*;
 import java.io.*;
 import java.sql.*;
 
-public class Selecthome extends HttpServlet // class
-{
+public class HomesForSale extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Statement state4 = null;
 		ResultSet result = null;
 		String query = "";
 		Connection con = null;
-		String HOMEID = request.getParameter("HOMEID"); // user input
+		String CITY = request.getParameter("CITY");
+
 		try {
-			DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver()); // web server connects java code to sql
+			DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
 			con = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:orcl", "CSIPROJECT", "mohammed");
 			System.out.println("Congratulations! You are connected successfully.");
 		} catch (SQLException e) {
-			System.out.println("Error: " + e); // catch exception errors from user input
+			System.out.println("Error: " + e);
 		} catch (Exception e) {
 			System.err.println("Exception while loading  driver");
 		}
@@ -35,20 +35,19 @@ public class Selecthome extends HttpServlet // class
 			e.printStackTrace();
 		}
 
-		query = "Select * from homes where HOMEID = '" + HOMEID + "'"; // communicates with sql
+		query = "select * from homes where city = '" + CITY + "'";
 
-		out.println("<html><head><title>  The House Attribute Report</title>");
+		out.println("<html><head><title>Homes Table Report</title>");
 		out.println("</head><body>");
 
-		out.print("<br /><b><center><font color=\"white\"><H2>The House Attribute Report</H2></font>");
+		out.print("<br /><b><center><font color=\"RED\"><H2>Homes Table Report test</H2></font>");
 		out.println("</center><br />");
 		try {
 			result = state4.executeQuery(query);
-
 		} catch (SQLException e) {
 			System.err.println("SQLException while executing SQL Statement.");
 		}
-		out.println("<center><table border=\"1\">"); // Chart printout of house attributes
+		out.println("<center><table border=\"1\">");
 		out.println("<tr BGCOLOR=\"#cccccc\">");
 		out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">HOMEID</td>");
 		out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">ADDRESS</td>");
@@ -64,8 +63,7 @@ public class Selecthome extends HttpServlet // class
 		out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">SCHOOLDISTRICT</td>");
 		out.println("</tr>");
 		try {
-			while (result.next()) // while loop that loops through sql chart line after line
-			{
+			while (result.next()) {
 				out.println("<tr>");
 				out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">"
 						+ result.getString(1) + "</td>");
@@ -94,10 +92,10 @@ public class Selecthome extends HttpServlet // class
 				out.println("</tr>");
 			}
 		} catch (SQLException e) {
-			System.out.println("Resultset is not connected");
+			System.out.println("Resutset is not connected");
 		}
 
-		out.println("</table></CENTER>"); // centers table output
+		out.println("</table></CENTER>");
 		try {
 			result.close();
 			state4.close();

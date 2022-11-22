@@ -34,6 +34,15 @@
      <servlet-name>people</servlet-name>
      <url-pattern>/people</url-pattern>
   </servlet-mapping>
+  <servlet>
+     <servlet-name>Agents</servlet-name>
+     <servlet-class>Agents</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+     <servlet-name>Agents</servlet-name>
+     <url-pattern>/Agents</url-pattern>
+  </servlet-mapping>
   
    <servlet>
      <servlet-name>GetParameters</servlet-name>
@@ -141,13 +150,13 @@
 
 
   <servlet>
-     <servlet-name>updateOwner</servlet-name>
-     <servlet-class>updateOwner</servlet-class>
+     <servlet-name>UpdateOwner</servlet-name>
+     <servlet-class>UpdateOwner</servlet-class>
   </servlet>
 
   <servlet-mapping>
-     <servlet-name>updateOwner</servlet-name>
-     <url-pattern>/updateOwner</url-pattern>
+     <servlet-name>UpdateOwner</servlet-name>
+     <url-pattern>/UpdateOwner</url-pattern>
   </servlet-mapping>
 
   <servlet>
@@ -161,13 +170,13 @@
   </servlet-mapping>
 
   <servlet>
-     <servlet-name>homesForSale</servlet-name>
-     <servlet-class>homesForSale</servlet-class>
+     <servlet-name>HomesForSale</servlet-name>
+     <servlet-class>HomesForSale</servlet-class>
   </servlet>
 
   <servlet-mapping>
-     <servlet-name>homesForSale</servlet-name>
-     <url-pattern>/homesForSale</url-pattern>
+     <servlet-name>HomesForSale</servlet-name>
+     <url-pattern>/HomesForSale</url-pattern>
   </servlet-mapping>
   
   <servlet>
@@ -189,6 +198,16 @@
      <servlet-name>index</servlet-name>
      <url-pattern>/index</url-pattern>
   </servlet-mapping>
+  <servlet>
+     <servlet-name>DeletePerson</servlet-name>
+     <servlet-class>DeletePerson</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+     <servlet-name>DeletePerson</servlet-name>
+     <url-pattern>/DeletePerson</url-pattern>
+  </servlet-mapping>
+  
 
 </web-app>
 

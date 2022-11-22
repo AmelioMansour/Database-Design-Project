@@ -37,7 +37,7 @@ CREATE TABLE cities (
      CHECK (incomeTaxRate >= 0)
 );
 CREATE TABLE zip (
-	zip NUMBER(5) CHECK (zip>9999),
+      zip NUMBER(5) CHECK (zip>9999),
     PRIMARY KEY(zip),
     averageIncome NUMBER(9,2),
     unemploymentRate NUMBER(3,3)
@@ -60,8 +60,8 @@ CREATE TABLE homes (
       Bedrooms          NUMBER(2),
       FullBathrooms     NUMBER(2),
       HalfBathrooms     NUMBER(2),
-     Landsize          NUMBER(6,2),
-     YearConstructed   NUMBER(4),
+      Landsize          NUMBER(6,2),
+      YearConstructed   NUMBER(4),
      PRIMARY KEY (HomeID),
      CHECK (Floorspace > 0),
      CHECK (Floors > 0),
@@ -92,11 +92,11 @@ CREATE TABLE apartments (
       PRIMARY KEY (HomeID),
       FOREIGN KEY (HomeID) references homes,
       CHECK (PetsOK = 'Y' OR PetsOK = 'N'),
-     CHECK (FloorNr > 0),
-     CHECK (Rent > 0) ,
+      CHECK (FloorNr > 0),
+      CHECK (Rent > 0) ,
     -- from relationship BelongsTo
-     ComplexID        INTEGER NOT NULL,
-     FOREIGN KEY (ComplexID) references apartmentComplexes
+      ComplexID        INTEGER NOT NULL,
+      FOREIGN KEY (ComplexID) references apartmentComplexes
 );
 CREATE TABLE condos (
       HomeID            INTEGER,

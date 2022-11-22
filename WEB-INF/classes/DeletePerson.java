@@ -3,25 +3,33 @@ import javax.servlet.http.*;
 import java.io.*;
 import java.sql.*;
 
-public class homes extends HttpServlet 
+public class DeletePerson extends HttpServlet 
 {
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException,IOException
     {        
 			Statement state4 = null;
 			ResultSet result = null;
 			String query="";        
 			Connection con=null; 
+            
+
+                String PERSONID = request.getParameter("PERSONID");
 
 		try
 		{			
             DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver()); 
             con = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:orcl", "CSIPROJECT", "mohammed");
 	       	System.out.println("Congratulations! You are connected successfully.");      
+      
+			
      	}
         catch(SQLException e)
 		{	
-			System.out.println("Error: "+e);	
+			System.out.println("Error: "+e);
+			
+			
+			
 		}
 		catch(Exception e) 
 		{
@@ -47,42 +55,28 @@ public class homes extends HttpServlet
   			e.printStackTrace();
 		}
 		
-		query = "select distinct HOMEID,  ADDRESS from homes";
+		query = "delete from person where personID = '"+PERSONID+"'";											
+      
 		
-		out.println("<html><head><title>Homes Table Report</title>");	 
+		out.println("<html><head><title>  Record has deleted</title>");	 
 		out.println("</head><body>");
 		
-		out.print( "<br /><b><center><font color=\"RED\"><H2>Homes Table Report test</H2></font>");
+		
+		out.print( "<br /><b><center><font color=\"RED\"><H2>The following record has been deleted from the database:</H2></font>");
+		
+        out.print( PERSONID );
+		
         out.println( "</center><br />" );
        	try 
 		{ 
 			result=state4.executeQuery(query);
+				
 	  	}
 		catch (SQLException e) 
 		{
 			System.err.println("SQLException while executing SQL Statement."); 
 		}
-		out.println("<center><table border=\"1\">"); 
-		out.println("<tr BGCOLOR=\"#cccccc\">");
-        out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">Home ID</td>");
-        out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">Home Address</td>");
-        out.println("</tr>");
-		try 
-		{ 
-            while(result.next()) 
-			{ 
-		    	out.println("<tr>");
-                out.println("     <td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">"+result.getString(1)+"</td>");
-		    	out.println("     <td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">"+result.getString(2)+"</td>");
-                out.println("</tr>");
-			} 
-	    }
-		catch (SQLException e) 
-		{
-			System.out.println("Resutset is not connected"); 
-		}
-
-		out.println("</table></CENTER>");
+		
 		try 
 		{ 
    			result.close(); 

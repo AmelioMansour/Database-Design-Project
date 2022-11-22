@@ -126,6 +126,3 @@ INSERT INTO includes (homeid, modelNr)
 VALUES (104, 456);
 INSERT INTO includes (homeid, modelNr)
 VALUES (104, 455);
-
---commits inserts so that it saves
-commit;

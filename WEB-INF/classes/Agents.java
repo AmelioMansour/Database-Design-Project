@@ -3,7 +3,7 @@ import javax.servlet.http.*;
 import java.io.*;
 import java.sql.*;
 
-public class homes extends HttpServlet 
+public class Agents extends HttpServlet 
 {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException,IOException
@@ -47,12 +47,12 @@ public class homes extends HttpServlet
   			e.printStackTrace();
 		}
 		
-		query = "select distinct HOMEID,  ADDRESS from homes";
+		query = "select * from agents";
 		
-		out.println("<html><head><title>Homes Table Report</title>");	 
+		out.println("<html><head><title>Agents Table Report</title>");	 
 		out.println("</head><body>");
 		
-		out.print( "<br /><b><center><font color=\"RED\"><H2>Homes Table Report test</H2></font>");
+		out.print( "<br /><b><center><font color=\"RED\"><H2>Agents Table Report test</H2></font>");
         out.println( "</center><br />" );
        	try 
 		{ 
@@ -64,8 +64,8 @@ public class homes extends HttpServlet
 		}
 		out.println("<center><table border=\"1\">"); 
 		out.println("<tr BGCOLOR=\"#cccccc\">");
-        out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">Home ID</td>");
-        out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">Home Address</td>");
+        out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\"> License Numebr</td>");
+        out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">Person Id</td>");
         out.println("</tr>");
 		try 
 		{ 

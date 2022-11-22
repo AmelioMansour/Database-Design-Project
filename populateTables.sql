@@ -1,3 +1,4 @@
+--test
 --fill cities
 INSERT INTO cities (name, population, crimeRate, propertyTaxRate, incomeTaxRate)
 VALUES ('Rochester', 13035, 359.2, 13.3, 60);
@@ -125,16 +126,3 @@ INSERT INTO includes (homeid, modelNr)
 VALUES (104, 456);
 INSERT INTO includes (homeid, modelNr)
 VALUES (104, 455);
-
-INSERT INTO owners (personId)
-VALUES (1);
-INSERT INTO owners (personId)
-VALUES (3);
-INSERT INTO owners (personId)
-VALUES (12);
-INSERT INTO owners (personId)
-VALUES (50);
-INSERT INTO owners (personId)
-VALUES (52);
-INSERT INTO owners (personId)
-VALUES (333);

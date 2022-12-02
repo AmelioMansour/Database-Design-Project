@@ -50,10 +50,10 @@ public class HomesForSale extends HttpServlet
 		
 		query = "select * from homes where city = '"+CITY+"'";
 		
-		out.println("<html><head><title>Homes Table Report</title>");	 
+		out.println("<html><head><title>Homes for sale</title>");	 
 		out.println("</head><body>");
 		
-		out.print( "<br /><b><center><font color=\"RED\"><H2>Homes Table Report test</H2></font>");
+		out.print( "<br /><b><center><font color=\"RED\"><H2>Homes for sale</H2></font>");
         out.println( "</center><br />" );
        	try 
 		{ 
@@ -65,17 +65,38 @@ public class HomesForSale extends HttpServlet
 		}
 		out.println("<center><table border=\"1\">"); 
 		out.println("<tr BGCOLOR=\"#cccccc\">");
-        out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">Home ID</td>");
-        out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">Home Address</td>");
+        out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">HOMEID</td>");
+        out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">ADDRESS</td>");
+        out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">FLOORSPACE</td>");
+        out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">FLOORS</td>");
+		out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">BEDROOMS</td>");
+        out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">FULLBATHROOMS</td>");
+        out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">HALFBATHROOMS</td>");
+        out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">LANDSIZE</td>");
+		out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">YEARCONSTRUCTED</td>");
+        out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">CITY</td>");
+        out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">ZIP</td>");
+        out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">SCHOOLDISTRICT</td>");
+
         out.println("</tr>");
 		try 
 		{ 
             while(result.next()) 
 			{ 
 		    	out.println("<tr>");
-                out.println("     <td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">"+result.getString(1)+"</td>");
-		    	out.println("     <td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">"+result.getString(2)+"</td>");
-                out.println("</tr>");
+                    out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">"+result.getString(1)+"</td>");
+		    		out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">"+result.getString(2)+"</td>");
+                    out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">"+result.getString(3)+"</td>");
+		    		out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">"+result.getString(4)+"</td>");
+					out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">"+result.getString(5)+"</td>");
+		    		out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">"+result.getString(6)+"</td>");
+                    out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">"+result.getString(7)+"</td>");
+		    		out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">"+result.getString(8)+"</td>");
+					out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">"+result.getString(9)+"</td>");
+		    		out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">"+result.getString(10)+"</td>");
+                    out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">"+result.getString(11)+"</td>");
+		    		out.println("<td align = \"justify\"><font face =\"times new roman\"  size=\"4pt\">"+result.getString(12)+"</td>");
+                    out.println("</tr>"); 
 			} 
 	    }
 		catch (SQLException e) 

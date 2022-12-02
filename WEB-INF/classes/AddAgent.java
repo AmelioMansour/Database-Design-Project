@@ -65,7 +65,7 @@ public class AddAgent extends HttpServlet
 		String user = "CSIPROJECT";
 		String password = "mohammed";  
 		Connection conn = DriverManager.getConnection(url,user, password);  
-		pstmt = conn.prepareStatement("insert into person " +
+		    pstmt = conn.prepareStatement("insert into person " +
         "(PERSONID, NAME) "
          + "values (?, ?)");
         pstmt2 = conn.prepareStatement("insert into agents " +

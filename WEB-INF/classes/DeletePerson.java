@@ -55,7 +55,7 @@ public class DeletePerson extends HttpServlet
   			e.printStackTrace();
 		}
 		
-		query = "delete from person where personID = '"+PERSONID+"'";											
+		query = "delete from person where personID ='"+PERSONID+"'";											
       
 		
 		out.println("<html><head><title>  Record has deleted</title>");	 
